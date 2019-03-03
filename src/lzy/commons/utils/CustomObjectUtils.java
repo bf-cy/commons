@@ -19,7 +19,7 @@ import org.apache.commons.lang3.ObjectUtils;
  * @author lzy
  * @dateTime 2019年3月3日 下午1:55:28
  *****************************************************************************************************************************************************/
-public class CostomObjectUtils extends ObjectUtils{
+public class CustomObjectUtils extends ObjectUtils{
 
 	public static boolean isNotEmpty(Object obj) {
 		if(obj==null){
