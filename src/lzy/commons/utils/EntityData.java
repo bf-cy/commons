@@ -76,7 +76,7 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 
 	public String getString(Object key) {
 		Object obj = get(key);
-		if (CostomObjectUtils.isNotEmpty(obj)) {
+		if (CustomObjectUtils.isNotEmpty(obj)) {
 			return obj.toString();
 		}
 		return null;
@@ -84,7 +84,7 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 
 	public Integer getInteger(Object key) {
 		Object obj = get(key);
-		if (CostomObjectUtils.isNotEmpty(obj)) {
+		if (CustomObjectUtils.isNotEmpty(obj)) {
 			return Integer.valueOf(obj.toString());
 		}
 		return null;
@@ -149,7 +149,7 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 	 **********************************************************************************/
 	public Byte getByte(Object key) {
 		Object obj = get(key);
-		if (CostomObjectUtils.isNotEmpty(obj)) {
+		if (CustomObjectUtils.isNotEmpty(obj)) {
 			try {
 				return Byte.parseByte(obj.toString());
 			} catch (Exception e) {
@@ -165,7 +165,7 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 	 **********************************************************************************/
 	public Float getFloat(Object key) {
 		Object obj = get(key);
-		if (CostomObjectUtils.isNotEmpty(obj)) {
+		if (CustomObjectUtils.isNotEmpty(obj)) {
 			try {
 				return Float.parseFloat(obj.toString());
 			} catch (NumberFormatException e) {
@@ -181,7 +181,7 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 	 **********************************************************************************/
 	public Double getDouble(Object key) {
 		Object obj = get(key);
-		if (CostomObjectUtils.isNotEmpty(obj)) {
+		if (CustomObjectUtils.isNotEmpty(obj)) {
 			try {
 				return Double.parseDouble(obj.toString());
 			} catch (NumberFormatException e) {
@@ -199,7 +199,7 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 	 *****************************************************************************************************************************************************/
 	public Long getLong(Object key) {
 		Object obj = get(key);
-		if (CostomObjectUtils.isNotEmpty(obj)) {
+		if (CustomObjectUtils.isNotEmpty(obj)) {
 			try {
 				return Long.parseLong(obj.toString());
 			} catch (NumberFormatException e) {
