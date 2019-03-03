@@ -10,7 +10,7 @@ package lzy.commons.exception;
  * @author lzy
  * @date 2018年12月4日 下午6:04:05
  **********************************************************************************/
-public class HandleException extends Exception {
+public class HandleException extends Throwable {
 
 	/**********************************************************************************
 	 * @Desc 
