@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,8 +31,13 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
+		ArrayList list = new ArrayList<String>();
+
+		System.out.println(list instanceof Iterable);
+		System.out.println(list instanceof ArrayList);
+		
 		String menu=
-//				"1," + //系统管理
+//				"1," + //绯荤粺绠＄悊
 				"52," + 
 				"56," + 
 				"57," + 
@@ -47,7 +53,7 @@ public class Test {
 				"62," + 
 				"63," + 
 				"64," + 
-//				"65," + //关键字搜索设置
+//				"65," + //鍏抽敭瀛楁悳绱㈣缃�
 				"66," + 
 				"67," + 
 				"68," + 
@@ -101,16 +107,16 @@ public class Test {
 //		Integer percentageArray[][] = new Integer[100][1];
 //		ArrayList<Integer> array_ = (ArrayList<Integer>)array.clone();
 //		int a = 0;
-//		//循环奖励信息
+//		//寰幆濂栧姳淇℃伅
 //		for (int i = 0; i < prizes.length; i++) {
-//			//获取随机数
+//			//鑾峰彇闅忔満鏁�
 //			System.out.println("i:"+i);
 //			Random random = new Random();
 //			for (int j = prizes[i]; j >0; --j) {
-//				//在100以内的正整数数组中随机取值，然后将这个值从数组中移除，下一次在剩余的100以内的正整数数组中随机取值
+//				//鍦�100浠ュ唴鐨勬鏁存暟鏁扮粍涓殢鏈哄彇鍊硷紝鐒跺悗灏嗚繖涓�间粠鏁扮粍涓Щ闄わ紝涓嬩竴娆″湪鍓╀綑鐨�100浠ュ唴鐨勬鏁存暟鏁扮粍涓殢鏈哄彇鍊�
 //				int nextInt = random.nextInt(array_.size());
 //				Integer remove = array_.remove(nextInt);
-//				//根据上面随机取出的正整数，在奖励随机概率二维数组中存入对应的奖励
+//				//鏍规嵁涓婇潰闅忔満鍙栧嚭鐨勬鏁存暟锛屽湪濂栧姳闅忔満姒傜巼浜岀淮鏁扮粍涓瓨鍏ュ搴旂殑濂栧姳
 //				percentageArray[nextInt][0] = remove;
 //				System.out.println(a++);
 //			}
