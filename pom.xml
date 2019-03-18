@@ -4,18 +4,27 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>lzy</groupId>
 	<artifactId>commons-utils</artifactId>
-	<version>${project.release.version}</version>
+	<version>${project.version}</version>
 	
 	<profiles>
 		<profile>
-			<id>release</id>
+			<id>RELEASE</id>
 		    <properties>
-	 	        <project.release.version>0.1</project.release.version>
+	 	        <project.version>0.1.0.RELEASE</project.version>
 		    </properties>
+        </profile>
+		<profile>
+			<id>SNAPSHOT</id>
+		    <properties>
+	 	        <project.version>0.1.0.SNAPSHOTS</project.version>
+		    </properties>
+		    <activation>
+	            <!-- 设置当前为默认值 -->
+	            <activeByDefault>true</activeByDefault>
+	        </activation>
         </profile>
     </profiles>
 	<properties>
-		<project.release.version>0.1</project.release.version>
 		<org.apache.commons.commons-lang3>3.8.1</org.apache.commons.commons-lang3>
 		<commons-io>2.6</commons-io>
 		<javax.servlet.javax.servlet-api>4.0.1</javax.servlet.javax.servlet-api>
@@ -38,15 +47,16 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+	
 	<distributionManagement>
 		<repository>
 			<!-- 这里的ID要和setting的id一致 -->
-			<id>nexus-release</id>
+			<id>nexus-releases</id>
 			<url>http://192.168.0.10/repository/maven-releases/</url>
 		</repository>
 		<!--这是打成快照版本的配置 -->
 		<snapshotRepository>
-			<id>nexus-snapshot</id>
+			<id>nexus-snapshots</id>
 			<url>http://192.168.0.10/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
@@ -62,6 +72,12 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+			</resource>
+		</resources>
 	</build>
 	
 	
