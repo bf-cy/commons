@@ -1,7 +1,7 @@
 /*****************************************************************************************************************************************************
  * 
  * @author lzy
- * @date 2019Äê2ÔÂ25ÈÕ ÏÂÎç1:46:11
+ * @date 2019å¹´2æœˆ25æ—¥ ä¸‹åˆ1:46:11
  *****************************************************************************************************************************************************/
 package lzy.commons.utils;
 
@@ -18,19 +18,19 @@ import java.util.zip.ZipOutputStream;
 /*****************************************************************************************************************************************************
  * 
  * @author lzy
- * @dateTime 2019Äê2ÔÂ25ÈÕ ÏÂÎç1:46:11
+ * @dateTime 2019å¹´2æœˆ25æ—¥ ä¸‹åˆ1:46:11
  *****************************************************************************************************************************************************/
 public class ZipUtils {
 
 	private static final int BUFFER_SIZE = 2 * 1024;
 
 	/*****************************************************************************************************************************************************
-	 * Ñ¹Ëõ³ÉZIP ·½·¨1
+	 * å‹ç¼©æˆZIP æ–¹æ³•1
 	 * 
-	 * @param srcDir           Ñ¹ËõÎÄ¼ş¼ĞÂ·¾¶
-	 * @param out              Ñ¹ËõÎÄ¼şÊä³öÁ÷
-	 * @param KeepDirStructure ÊÇ·ñ±£ÁôÔ­À´µÄÄ¿Â¼½á¹¹,true:±£ÁôÄ¿Â¼½á¹¹;false:ËùÓĞÎÄ¼şÅÜµ½Ñ¹Ëõ°ü¸ùÄ¿Â¼ÏÂ(×¢Òâ£º²»±£ÁôÄ¿Â¼½á¹¹¿ÉÄÜ»á³öÏÖÍ¬ÃûÎÄ¼ş,»áÑ¹ËõÊ§°Ü)
-	 * @throws RuntimeException Ñ¹ËõÊ§°Ü»áÅ×³öÔËĞĞÊ±Òì³£
+	 * @param srcDir           å‹ç¼©æ–‡ä»¶å¤¹è·¯å¾„
+	 * @param out              å‹ç¼©æ–‡ä»¶è¾“å‡ºæµ
+	 * @param KeepDirStructure æ˜¯å¦ä¿ç•™åŸæ¥çš„ç›®å½•ç»“æ„,true:ä¿ç•™ç›®å½•ç»“æ„;false:æ‰€æœ‰æ–‡ä»¶è·‘åˆ°å‹ç¼©åŒ…æ ¹ç›®å½•ä¸‹(æ³¨æ„ï¼šä¸ä¿ç•™ç›®å½•ç»“æ„å¯èƒ½ä¼šå‡ºç°åŒåæ–‡ä»¶,ä¼šå‹ç¼©å¤±è´¥)
+	 * @throws RuntimeException å‹ç¼©å¤±è´¥ä¼šæŠ›å‡ºè¿è¡Œæ—¶å¼‚å¸¸
 	 *****************************************************************************************************************************************************/
 	public static void toZip(String srcDir, OutputStream out, boolean KeepDirStructure) throws RuntimeException {
 
@@ -41,7 +41,7 @@ public class ZipUtils {
 			File sourceFile = new File(srcDir);
 			compress(sourceFile, zos, sourceFile.getName(), KeepDirStructure);
 			long end = System.currentTimeMillis();
-			System.out.println("Ñ¹ËõÍê³É£¬ºÄÊ±£º" + (end - start) + " ms");
+			System.out.println("å‹ç¼©å®Œæˆï¼Œè€—æ—¶ï¼š" + (end - start) + " ms");
 		} catch (Exception e) {
 			throw new RuntimeException("zip error from ZipUtils", e);
 		} finally {
@@ -57,11 +57,11 @@ public class ZipUtils {
 	}
 
 	/**
-	 * Ñ¹Ëõ³ÉZIP ·½·¨2
+	 * å‹ç¼©æˆZIP æ–¹æ³•2
 	 * 
-	 * @param srcFiles ĞèÒªÑ¹ËõµÄÎÄ¼şÁĞ±í
-	 * @param out      Ñ¹ËõÎÄ¼şÊä³öÁ÷
-	 * @throws RuntimeException Ñ¹ËõÊ§°Ü»áÅ×³öÔËĞĞÊ±Òì³£
+	 * @param srcFiles éœ€è¦å‹ç¼©çš„æ–‡ä»¶åˆ—è¡¨
+	 * @param out      å‹ç¼©æ–‡ä»¶è¾“å‡ºæµ
+	 * @throws RuntimeException å‹ç¼©å¤±è´¥ä¼šæŠ›å‡ºè¿è¡Œæ—¶å¼‚å¸¸
 	 */
 	public static void toZip(List<File> srcFiles, OutputStream out) throws RuntimeException {
 		long start = System.currentTimeMillis();
@@ -80,7 +80,7 @@ public class ZipUtils {
 				in.close();
 			}
 			long end = System.currentTimeMillis();
-			System.out.println("Ñ¹ËõÍê³É£¬ºÄÊ±£º" + (end - start) + " ms");
+			System.out.println("å‹ç¼©å®Œæˆï¼Œè€—æ—¶ï¼š" + (end - start) + " ms");
 		} catch (Exception e) {
 			throw new RuntimeException("zip error from ZipUtils", e);
 		} finally {
@@ -95,22 +95,22 @@ public class ZipUtils {
 	}
 
 	/*****************************************************************************************************************************************************
-	 * µİ¹éÑ¹Ëõ·½·¨
+	 * é€’å½’å‹ç¼©æ–¹æ³•
 	 * 
-	 * @param sourceFile       Ô´ÎÄ¼ş
-	 * @param zos              zipÊä³öÁ÷
-	 * @param name             Ñ¹ËõºóµÄÃû³Æ
-	 * @param KeepDirStructure ÊÇ·ñ±£ÁôÔ­À´µÄÄ¿Â¼½á¹¹,true:±£ÁôÄ¿Â¼½á¹¹;
-	 *                         false:ËùÓĞÎÄ¼şÅÜµ½Ñ¹Ëõ°ü¸ùÄ¿Â¼ÏÂ(×¢Òâ£º²»±£ÁôÄ¿Â¼½á¹¹¿ÉÄÜ»á³öÏÖÍ¬ÃûÎÄ¼ş,»áÑ¹ËõÊ§°Ü)
+	 * @param sourceFile       æºæ–‡ä»¶
+	 * @param zos              zipè¾“å‡ºæµ
+	 * @param name             å‹ç¼©åçš„åç§°
+	 * @param KeepDirStructure æ˜¯å¦ä¿ç•™åŸæ¥çš„ç›®å½•ç»“æ„,true:ä¿ç•™ç›®å½•ç»“æ„;
+	 *                         false:æ‰€æœ‰æ–‡ä»¶è·‘åˆ°å‹ç¼©åŒ…æ ¹ç›®å½•ä¸‹(æ³¨æ„ï¼šä¸ä¿ç•™ç›®å½•ç»“æ„å¯èƒ½ä¼šå‡ºç°åŒåæ–‡ä»¶,ä¼šå‹ç¼©å¤±è´¥)
 	 * @throws Exception
 	 *****************************************************************************************************************************************************/
 	private static void compress(File sourceFile, ZipOutputStream zos, String name, boolean KeepDirStructure)
 			throws Exception {
 		byte[] buf = new byte[BUFFER_SIZE];
 		if (sourceFile.isFile()) {
-			// ÏòzipÊä³öÁ÷ÖĞÌí¼ÓÒ»¸özipÊµÌå£¬¹¹ÔìÆ÷ÖĞnameÎªzipÊµÌåµÄÎÄ¼şµÄÃû×Ö
+			// å‘zipè¾“å‡ºæµä¸­æ·»åŠ ä¸€ä¸ªzipå®ä½“ï¼Œæ„é€ å™¨ä¸­nameä¸ºzipå®ä½“çš„æ–‡ä»¶çš„åå­—
 			zos.putNextEntry(new ZipEntry(name));
-			// copyÎÄ¼şµ½zipÊä³öÁ÷ÖĞ
+			// copyæ–‡ä»¶åˆ°zipè¾“å‡ºæµä¸­
 			int len;
 			FileInputStream in = new FileInputStream(sourceFile);
 			while ((len = in.read(buf)) != -1) {
@@ -122,20 +122,20 @@ public class ZipUtils {
 		} else {
 			File[] listFiles = sourceFile.listFiles();
 			if (listFiles == null || listFiles.length == 0) {
-				// ĞèÒª±£ÁôÔ­À´µÄÎÄ¼ş½á¹¹Ê±,ĞèÒª¶Ô¿ÕÎÄ¼ş¼Ğ½øĞĞ´¦Àí
+				// éœ€è¦ä¿ç•™åŸæ¥çš„æ–‡ä»¶ç»“æ„æ—¶,éœ€è¦å¯¹ç©ºæ–‡ä»¶å¤¹è¿›è¡Œå¤„ç†
 				if (KeepDirStructure) {
-					// ¿ÕÎÄ¼ş¼ĞµÄ´¦Àí
+					// ç©ºæ–‡ä»¶å¤¹çš„å¤„ç†
 					zos.putNextEntry(new ZipEntry(name + "/"));
-					// Ã»ÓĞÎÄ¼ş£¬²»ĞèÒªÎÄ¼şµÄcopy
+					// æ²¡æœ‰æ–‡ä»¶ï¼Œä¸éœ€è¦æ–‡ä»¶çš„copy
 					zos.closeEntry();
 				}
 
 			} else {
 				for (File file : listFiles) {
-					// ÅĞ¶ÏÊÇ·ñĞèÒª±£ÁôÔ­À´µÄÎÄ¼ş½á¹¹
+					// åˆ¤æ–­æ˜¯å¦éœ€è¦ä¿ç•™åŸæ¥çš„æ–‡ä»¶ç»“æ„
 					if (KeepDirStructure) {
-						// ×¢Òâ£ºfile.getName()Ç°ÃæĞèÒª´øÉÏ¸¸ÎÄ¼ş¼ĞµÄÃû×Ö¼ÓÒ»Ğ±¸Ü,
-						// ²»È»×îºóÑ¹Ëõ°üÖĞ¾Í²»ÄÜ±£ÁôÔ­À´µÄÎÄ¼ş½á¹¹,¼´£ºËùÓĞÎÄ¼ş¶¼ÅÜµ½Ñ¹Ëõ°ü¸ùÄ¿Â¼ÏÂÁË
+						// æ³¨æ„ï¼šfile.getName()å‰é¢éœ€è¦å¸¦ä¸Šçˆ¶æ–‡ä»¶å¤¹çš„åå­—åŠ ä¸€æ–œæ ,
+						// ä¸ç„¶æœ€åå‹ç¼©åŒ…ä¸­å°±ä¸èƒ½ä¿ç•™åŸæ¥çš„æ–‡ä»¶ç»“æ„,å³ï¼šæ‰€æœ‰æ–‡ä»¶éƒ½è·‘åˆ°å‹ç¼©åŒ…æ ¹ç›®å½•ä¸‹äº†
 						compress(file, zos, name + "/" + file.getName(), KeepDirStructure);
 					} else {
 						compress(file, zos, file.getName(), KeepDirStructure);
@@ -147,11 +147,11 @@ public class ZipUtils {
 	}
 
 	public static void main(String[] args) throws Exception {
-		/** ²âÊÔÑ¹Ëõ·½·¨1 */
+		/** æµ‹è¯•å‹ç¼©æ–¹æ³•1 */
 		FileOutputStream fos1 = new FileOutputStream(new File("c:/mytest01.zip"));
 		ZipUtils.toZip("D:/log", fos1, true);
 
-		/** ²âÊÔÑ¹Ëõ·½·¨2 */
+		/** æµ‹è¯•å‹ç¼©æ–¹æ³•2 */
 		List<File> fileList = new ArrayList<>();
 		fileList.add(new File("D:/Java/jdk1.7.0_45_64bit/bin/jar.exe"));
 		fileList.add(new File("D:/Java/jdk1.7.0_45_64bit/bin/java.exe"));
