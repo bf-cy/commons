@@ -19,18 +19,39 @@ public class HandleException extends Throwable {
 	 **********************************************************************************/
 	private static final long serialVersionUID = 1L;
 	
-	
-	public HandleException(String message) {
-		super(message);
-	}
+	private String            errCode;
+    private String            errMsg;
 
-	public HandleException(String message, Throwable cause) {
-		super(message, cause);
-	}
+    public HandleException() {
+        super();
+    }
+
+    public HandleException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public HandleException(String message) {
+        super(message);
+    }
+
+    public HandleException(Throwable cause) {
+        super(cause);
+    }
+
+    public HandleException(String errCode, String errMsg) {
+        super(errCode + ":" + errMsg);
+        this.errCode = errCode;
+        this.errMsg = errMsg;
+    }
+
+    public String getErrCode() {
+        return this.errCode;
+    }
+
+    public String getErrMsg() {
+        return this.errMsg;
+    }
 	
-	public HandleException(Throwable cause) {
-		super(cause);
-	}
 	
 
 }
