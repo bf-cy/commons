@@ -52,12 +52,12 @@
 		<repository>
 			<!-- 这里的ID要和setting的id一致 -->
 			<id>nexus-releases</id>
-			<url>http://192.168.0.10/repository/maven-releases/</url>
+			<url>http://code-server/repository/maven-releases/</url>
 		</repository>
 		<!--这是打成快照版本的配置 -->
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
-			<url>http://192.168.0.10/repository/maven-snapshots/</url>
+			<url>http://code-server/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<build>

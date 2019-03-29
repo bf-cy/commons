@@ -26,20 +26,27 @@ public class HandleException extends Throwable {
         super();
     }
 
-    public HandleException(String message, Throwable cause) {
-        super(message, cause);
+
+    public HandleException(String errMsg) {
+        super(errMsg);
     }
 
-    public HandleException(String message) {
-        super(message);
+    public HandleException(String errCode, String errMsg) {
+        super(errCode + ":" + errMsg);
+        this.errCode = errCode;
+        this.errMsg = errMsg;
     }
 
     public HandleException(Throwable cause) {
         super(cause);
     }
 
-    public HandleException(String errCode, String errMsg) {
-        super(errCode + ":" + errMsg);
+    public HandleException(String errMsg, Throwable cause) {
+        super(errMsg, cause);
+    }
+
+    public HandleException(String errCode, String errMsg , Throwable cause) {
+    	super(errCode + ":" + errMsg, cause);
         this.errCode = errCode;
         this.errMsg = errMsg;
     }
