@@ -16,7 +16,7 @@
 		<profile>
 			<id>SNAPSHOT</id>
 		    <properties>
-	 	        <project.version>0.1.0.SNAPSHOTS</project.version>
+	 	        <project.version>0.1.0-SNAPSHOT</project.version>
 		    </properties>
 		    <activation>
 	            <!-- 设置当前为默认值 -->
