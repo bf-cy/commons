@@ -146,16 +146,16 @@ public class ZipUtils {
 		}
 	}
 
-	public static void main(String[] args) throws Exception {
-		/** 测试压缩方法1 */
-		FileOutputStream fos1 = new FileOutputStream(new File("c:/mytest01.zip"));
-		ZipUtils.toZip("D:/log", fos1, true);
-
-		/** 测试压缩方法2 */
-		List<File> fileList = new ArrayList<>();
-		fileList.add(new File("D:/Java/jdk1.7.0_45_64bit/bin/jar.exe"));
-		fileList.add(new File("D:/Java/jdk1.7.0_45_64bit/bin/java.exe"));
-		FileOutputStream fos2 = new FileOutputStream(new File("c:/mytest02.zip"));
-		ZipUtils.toZip(fileList, fos2);
-	}
+//	public static void main(String[] args) throws Exception {
+//		/** 测试压缩方法1 */
+//		FileOutputStream fos1 = new FileOutputStream(new File("c:/mytest01.zip"));
+//		ZipUtils.toZip("D:/log", fos1, true);
+//
+//		/** 测试压缩方法2 */
+//		List<File> fileList = new ArrayList<>();
+//		fileList.add(new File("D:/Java/jdk1.7.0_45_64bit/bin/jar.exe"));
+//		fileList.add(new File("D:/Java/jdk1.7.0_45_64bit/bin/java.exe"));
+//		FileOutputStream fos2 = new FileOutputStream(new File("c:/mytest02.zip"));
+//		ZipUtils.toZip(fileList, fos2);
+//	}
 }
