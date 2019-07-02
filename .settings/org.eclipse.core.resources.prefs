@@ -1,5 +1,9 @@
 eclipse.preferences.version=1
+encoding//src/lzy/commons/exception/CustomTransactionalException.java=UTF-8
 encoding//src/lzy/commons/exception/HandleException.java=UTF-8
+encoding//src/lzy/commons/exception/UtilException.java=UTF-8
 encoding//src/lzy/commons/utils/CustomObjectUtils.java=UTF-8
+encoding//src/lzy/commons/utils/IdentificationCardUtil.java=UTF-8
 encoding//src/lzy/commons/utils/ZipUtils.java=UTF-8
 encoding//src/lzy/commons/utils/idworker/packageInfo.java=UTF-8
+encoding/<project>=UTF-8
