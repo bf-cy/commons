@@ -201,17 +201,17 @@ public class LunarUtils {
 
 	}
 
-	public static void main(String[] args) {
-		Calendar cal = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		try {
-			cal.setTime(sdf.parse("2021-5-5"));
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		calcuLunar(cal, 5, 5, new LunarUtils(true));
-		System.out.println("日期是:" + (cal.get(Calendar.MONTH) + 1) + "月" + cal.get(Calendar.DAY_OF_MONTH) + "日");
-	}
+//	public static void main(String[] args) {
+//		Calendar cal = Calendar.getInstance();
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//		try {
+//			cal.setTime(sdf.parse("2021-5-5"));
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+//		calcuLunar(cal, 5, 5, new LunarUtils(true));
+//		System.out.println("日期是:" + (cal.get(Calendar.MONTH) + 1) + "月" + cal.get(Calendar.DAY_OF_MONTH) + "日");
+//	}
 
 	public int getYear() {
 		return year;

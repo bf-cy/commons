@@ -168,11 +168,11 @@ public class DateUtils {
 		}
 	}
 	
-	public static void main(String[] args) {
-		int specifyNumDayMonth = specifyNumDayMonth("2019-04");
-		System.out.println(specifyNumDayMonth);
-		
-	}
+//	public static void main(String[] args) {
+//		int specifyNumDayMonth = specifyNumDayMonth("2019-04");
+//		System.out.println(specifyNumDayMonth);
+//		
+//	}
 
 	/*****************************************************************************************************************************************************
 	 * 将指定日期转换为字符串

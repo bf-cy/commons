@@ -354,15 +354,15 @@ public class VacationDayCalculateUtils {
 	/**
 	 * 进行测试，指定月份打印，要不然数字太多，正确性不好比对
 	 */
-	public static void main(String[] args) {
-		HashMap<String, Boolean> map = new VacationDayCalculateUtils().yearVacationDay(2019);
-		Set<String> keySet = map.keySet();
-		for (String key : keySet) {
-			Boolean v = map.get(key);
-			if (v && key.startsWith("05")) {
-				System.out.println(key);
-			}
-
-		}
-	}
+//	public static void main(String[] args) {
+//		HashMap<String, Boolean> map = new VacationDayCalculateUtils().yearVacationDay(2019);
+//		Set<String> keySet = map.keySet();
+//		for (String key : keySet) {
+//			Boolean v = map.get(key);
+//			if (v && key.startsWith("05")) {
+//				System.out.println(key);
+//			}
+//
+//		}
+//	}
 }
