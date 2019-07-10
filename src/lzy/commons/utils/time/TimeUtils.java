@@ -4,7 +4,7 @@
  * @author lzy
  * @date 2019年3月21日 下午6:16:46
  *****************************************************************************************************************************************************/
-package lzy.commons.utils;
+package lzy.commons.utils.time;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
