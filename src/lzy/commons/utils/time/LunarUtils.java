@@ -88,8 +88,7 @@ public class LunarUtils {
 	 * 传出y年m月d日对应的农历. yearCyl3:农历年与1864的相差数 ? monCyl4:从1900年1月31日以来,闰月数
 	 * dayCyl5:与1900年1月31日相差的天数,再加40 ?
 	 * 
-	 * @param cal
-	 * @return
+	 * @param cal 日历
 	 */
 	public LunarUtils(Calendar cal) {
 		int yearCyl, monCyl, dayCyl;

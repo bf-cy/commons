@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /*****************************************************************************************************************************************************
- * @desc 
  * 
  * @author lzy
- * @dateTime 2019年3月3日 下午1:42:23
+* 2019年3月3日 下午1:42:23
  *****************************************************************************************************************************************************/
 public class EntityData extends HashMap<String, Object> implements Map<String, Object> {
 
@@ -143,9 +142,9 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 	 * @author lzy 开始
 	 ********************************************************************************************************************************************************************/ 
 	/**********************************************************************************
-	 * @Desc 将指定键对应值转换为Byte
-	 * @param key
-	 * @return
+	 * 将指定键对应值转换为Byte
+	 * @param key 键
+	 * @return Byte类型值
 	 **********************************************************************************/
 	public Byte getByte(Object key) {
 		Object obj = get(key);
@@ -159,9 +158,9 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 		return null;
 	}
 	/**********************************************************************************
-	 * @Desc 将指定键对应值转换为Float
-	 * @param key
-	 * @return
+	 * 将指定键对应值转换为Float
+	 * @param key 键
+	 * @return Float类型值
 	 **********************************************************************************/
 	public Float getFloat(Object key) {
 		Object obj = get(key);
@@ -175,9 +174,9 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 		return null;
 	}
 	/**********************************************************************************
-	 * @Desc 将指定键对应值转换为Double
-	 * @param key
-	 * @return
+	 * 将指定键对应值转换为Double
+	 * @param key 键
+	 * @return Double类型值
 	 **********************************************************************************/
 	public Double getDouble(Object key) {
 		Object obj = get(key);
@@ -191,11 +190,10 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 		return null;
 	}
 	/*****************************************************************************************************************************************************
-	 * @Desc 将指定键对应值转换为Long
-	 * @param key
-	 * @return
-	 * @author lzy
-	 * @dateTime 2019年3月3日 上午9:50:28
+	 * 将指定键对应值转换为Long
+	 * @param key 键
+	 * @return Long类型值
+	 * @author lzy 2019年3月3日 上午9:50:28
 	 *****************************************************************************************************************************************************/
 	public Long getLong(Object key) {
 		Object obj = get(key);
@@ -210,11 +208,10 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 	}
 
 	/*****************************************************************************************************************************************************
-	 * @Desc 将指定键对应值转换为Byte
-	 * @param key
-	 * @return
-	 * @author lzy
-	 * @dateTime 2019年3月3日 上午9:50:44
+	 * 将指定键对应值转换为Date
+	 * @param key 键
+	 * @return Date 类型值
+	 * @author lzy 2019年3月3日 上午9:50:44
 	 *****************************************************************************************************************************************************/
 	public Date getDate(Object key) {
 		Object obj = get(key);

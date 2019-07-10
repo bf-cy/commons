@@ -11,16 +11,23 @@
 			<id>RELEASE</id>
 		    <properties>
 	 	        <project.version>0.1.0.RELEASE</project.version>
+                <javadoc.opts>-Xdoclint:none</javadoc.opts>
 		    </properties>
+		    <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
         </profile>
 		<profile>
 			<id>SNAPSHOT</id>
 		    <properties>
 	 	        <project.version>0.1.0-SNAPSHOT</project.version>
+                <javadoc.opts>-Xdoclint:none</javadoc.opts>
 		    </properties>
 		    <activation>
 	            <!-- 设置当前为默认值 -->
 	            <activeByDefault>true</activeByDefault>
+	            <!-- 设置java版本，org.apache.maven.plugins 打包时有效，否则使用默认版本 -->
+	             <jdk>[1.8,)</jdk>
 	        </activation>
         </profile>
     </profiles>
@@ -28,6 +35,9 @@
 		<org.apache.commons.commons-lang3>3.8.1</org.apache.commons.commons-lang3>
 		<commons-io>2.6</commons-io>
 		<javax.servlet.javax.servlet-api>4.0.1</javax.servlet.javax.servlet-api>
+		<!-- 指定maven构建时的编码格式 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<!-- <maven.compiler.encoding>UTF-8</maven.compiler.encoding>  -->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -62,13 +72,70 @@
 	</distributionManagement>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
+		
 		<plugins>
+			<!--生成doc jar包-->
+			<plugin>
+	            <groupId>org.apache.maven.plugins</groupId>
+	            <artifactId>maven-javadoc-plugin</artifactId>
+	            <version>3.1.0</version>
+	            <executions>
+	                <execution>
+	                    <id>attach-javadocs</id>
+	                    <phase>package</phase>
+	                    <goals>
+	                        <goal>jar</goal>
+	                    </goals>
+	                    <configuration>
+	                        <additionalparam>${javadoc.opts}</additionalparam>
+	                        <aggregate>true</aggregate>
+	                        <charset>UTF-8</charset>
+	                        <encoding>UTF-8</encoding>
+	                        <docencoding>UTF-8</docencoding>
+	                    </configuration>
+	                </execution>
+	            </executions>
+	        </plugin>
+	
+			<!--生成源码jar包-->
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-source-plugin</artifactId>
+			    <executions>
+			        <execution>
+			            <id>attach-sources</id>
+			            <goals>
+			                <goal>jar</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+                <configuration>
+                    <aggregate>true</aggregate>
+                    <charset>UTF-8</charset>
+                    <encoding>UTF-8</encoding>
+                    <docencoding>UTF-8</docencoding>
+                </configuration>
+			</plugin>
+			<!-- 默认编译器编译，编译结果是纯class文件 -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<!-- 一般而言，target与source是保持一致的，但是，有时候为了让程序能在其他版本的jdk中运行(对于低版本目标jdk，源代码中不能使用低版本jdk中不支持的语法)，会存在target不同于source的情况 -->                    
+			        <source>1.8</source> <!-- 源代码使用的JDK版本 -->                                                                                             
+			        <target>1.8</target> <!-- 需要生成的目标class文件的编译版本 -->                                                                                     
+			        <encoding>UTF-8</encoding><!-- 字符集编码 -->
+                    <charset>UTF-8</charset><!-- 字符集  -->
+                    <docencoding>UTF-8</docencoding><!-- java doc 字符编码 -->
+			        <!-- <skipTests>true</skipTests> --><!-- 跳过测试 -->                                                                             
+			        <!-- <verbose>true</verbose> -->
+			        <!-- <showWarnings>true</showWarnings> -->                                                                                                               
+			        <!-- <fork>true</fork> --><!-- 要使compilerVersion标签生效，还需要将fork设为true，用于明确表示编译版本配置的可用 -->               
+			        <!-- <compilerVersion>3.8.0</compilerVersion> --><!-- 指定插件将使用的编译器的版本 -->                                                 
+			        <executable><!-- path-to-javac --></executable><!-- 使用指定的javac命令，例如：<executable>${JAVA_1_4_HOME}/bin/javac</executable> -->                  
+			        <meminitial>128m</meminitial><!-- 编译器使用的初始内存 -->                                                                                      
+			        <maxmem>512m</maxmem><!-- 编译器使用的最大内存 -->                                                                                              
+			        <!-- <compilerArgument>-verbose -bootclasspath ${java.home}\lib\rt.jar</compilerArgument> --><!-- 这个选项用来传递编译器自身不包含但是却支持的参数选项 -->               
 				</configuration>
 			</plugin>
 		</plugins>
