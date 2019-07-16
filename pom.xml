@@ -38,6 +38,8 @@
 		<!-- 指定maven构建时的编码格式 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<!-- <maven.compiler.encoding>UTF-8</maven.compiler.encoding>  -->
+    	<!-- 推荐版本和spring中的版本一致 -->
+    	<org.apache.logging.log4j.version>2.11.2</org.apache.logging.log4j.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -56,6 +58,13 @@
 			<version>${javax.servlet.javax.servlet-api}</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-to-slf4j</artifactId>
+		    <version>${org.apache.logging.log4j.version}</version>
+		</dependency>
+		
 	</dependencies>
 	
 	<distributionManagement>
