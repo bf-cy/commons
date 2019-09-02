@@ -205,7 +205,6 @@ public class IdentificationCardUtil {
      * 验证身份证号是否正确
      * @param IDStr 身份证号
      * @return 返回校验结果
-     * @throws ParseException
      * @author lzy 2019年7月30日 下午12:32:25
      *****************************************************************************************************************************************************/
     public static boolean IDCardValidate(String IDStr) {

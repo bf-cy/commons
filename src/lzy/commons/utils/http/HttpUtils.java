@@ -78,7 +78,6 @@ public class HttpUtils {
 	 * @param entity http实体，主要是传递参数数据 可以为空
 	 * @return 返回相应结果
 	 * @author lzy 2019年8月1日 下午6:10:53
-	 * @param entity 
 	 *****************************************************************************************************************************************************/
 	public static String post(String url,Map<String,String> header, HttpEntity entity) {
 		String entityStr = null;

@@ -20,9 +20,12 @@ public class VacationDayCalculateUtils {
 	// 7天节假日规则=节日在周几，放假之前的多少天上班_放假后的多少天上班;
 	private String vacationMax = "1,2_0;2,2_0;3,3_0;4,0_3;5,0_2;6,0_2;7,1_1";
 
-	/**
+	/*****************************************************************************************************************************************************
 	 * 一个时间集合，放假则为true，工作日为false 放假包括国家法定节假日和双休日
-	 */
+	 * @param year 年份
+	 * @return 假期
+	 * @author lzy 2019年9月2日 下午3:51:48
+	 *****************************************************************************************************************************************************/
 	public HashMap<String, Boolean> yearVacationDay(Integer year) {
 		HashMap<String, Boolean> dates = weekVacation(year - 1);
 
@@ -326,12 +329,14 @@ public class VacationDayCalculateUtils {
 		return year + "-" + (cal.get(Calendar.MONTH) + 1) + "-" + cal.get(Calendar.DAY_OF_MONTH);
 	}
 
-	/**
+	/*****************************************************************************************************************************************************
 	 * 农历转公历计算
 	 * @param cal 日期对象
 	 * @param month 月
 	 * @param day 日
-	 */
+	 * @param l 农历工具类
+	 * @author lzy 2019年9月2日 下午3:52:44
+	 *****************************************************************************************************************************************************/
 	public static void calcuLunar(Calendar cal, int month, int day, LunarUtils l) {
 		LunarUtils lunar = new LunarUtils(cal);
 		if (lunar.getMonth() != month) {

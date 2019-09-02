@@ -78,7 +78,7 @@ public enum ResponseStatus {
 
 	/*****************************************************************************************************************************************************
 	 * Desc: 设置状态码对应消息
-	 * @param msg 状态码对应消息
+	 * @param message 状态码对应消息
 	 * @author lzy 2019年8月5日 下午1:42:29
 	 *****************************************************************************************************************************************************/
 	public void setMessage(String message) {
@@ -88,12 +88,12 @@ public enum ResponseStatus {
 	/*****************************************************************************************************************************************************
 	 * Desc: 枚举构造函数
 	 * @param code 状态吗
-	 * @param msg 状态对应消息
+	 * @param message 状态对应消息
 	 * @author lzy 2019年8月5日 下午1:39:57
 	 *****************************************************************************************************************************************************/
-	private ResponseStatus(int code, String msg) {
+	private ResponseStatus(int code, String message) {
 		this.code = code;
-		this.message = msg;
+		this.message = message;
 	}
 	
 
@@ -114,16 +114,16 @@ public enum ResponseStatus {
 
 	/*****************************************************************************************************************************************************
 	 * Desc: 根据状态消息（msg）获取状态信息 （msg值最好是从状态信息中获取，否则可能查询为空）
-	 * @param code 状态码
+	 * @param message 消息内容
 	 * @return 状态信息存在返回状态信息，如果状态信息不存在返回空
 	 * @author lzy 2019年8月5日 下午1:34:03
 	 *****************************************************************************************************************************************************/
-	public ResponseStatus getMsg(String msg) {
-		if(StringUtils.isBlank(msg)) {
+	public ResponseStatus getMsg(String message) {
+		if(StringUtils.isBlank(message)) {
 			return null;
 		}
 		for (ResponseStatus status : values()) {
-			if (status.getMessage().equals(msg)) {
+			if (status.getMessage().equals(message)) {
 				return status;
 			}
 		}
