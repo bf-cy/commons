@@ -32,8 +32,9 @@
         </profile>
     </profiles>
 	<properties>
-		<org.apache.commons.commons-lang3>3.8.1</org.apache.commons.commons-lang3>
+		<org.apache.commons.commons-lang3>3.9</org.apache.commons.commons-lang3>
 		<commons-io>2.6</commons-io>
+		<commons-collections4>4.4</commons-collections4>
 		<javax.servlet.javax.servlet-api>4.0.1</javax.servlet.javax.servlet-api>
 		<!-- 指定maven构建时的编码格式 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -52,6 +53,13 @@
 			<artifactId>commons-io</artifactId>
 			<version>${commons-io}</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-collections4</artifactId>
+		    <version>${commons-collections4}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -63,6 +71,12 @@
 		    <groupId>org.apache.logging.log4j</groupId>
 		    <artifactId>log4j-to-slf4j</artifactId>
 		    <version>${org.apache.logging.log4j.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.5.9</version>
 		</dependency>
 		
 	</dependencies>
