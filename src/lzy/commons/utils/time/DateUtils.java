@@ -9,6 +9,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import org.apache.commons.lang3.StringUtils;
+
 import lzy.commons.exception.UtilException;
 
 /**********************************************************************************
@@ -45,27 +47,29 @@ public class DateUtils {
 		yyyy-MM-dd hh:mm:ss
 		"EEE MMM dd hh:mm:ss zzz yyyy", Locale.ENGLISH
 	 * @param dateStr 日期字符串
-	 * @return 返回日期
+	 * @return 返回日期 字符串为空时返回空值
 	 * @author lzy 2018年12月11日 下午7:49:54
 	 **********************************************************************************/
 	public static Date parseString(String dateStr) {
 		try {
 			Date date = null;
-			if(dateStr.toUpperCase().indexOf("CST")==20) {
-				date = CST.parse(dateStr);
-			}else {
-				int length = dateStr.trim().length();
-				int indexOf = dateStr.indexOf("-");
-				if(length>10)
-					date = YEAR_MONTH_DAY_HOUR_MINUTE_SECOND.parse(dateStr);
-				else if(length<=10 && length>7 && indexOf>0) {
-					date = YEAR_MONTH_DAY.parse(dateStr);
-				}else if(length<=7 && length>4 && indexOf>0) {
-					date = YEAR_MONTH.parse(dateStr);
-				}else if(length==4) {
-					date = YEAR.parse(dateStr);
+			if(StringUtils.isNotBlank(dateStr)) {
+				if(dateStr.toUpperCase().indexOf("CST")==20) {
+					date = CST.parse(dateStr);
 				}else {
-					throw new UtilException("DATE_FORMAT_ERROR", "时间字符串格式化异常");
+					int length = dateStr.trim().length();
+					int indexOf = dateStr.indexOf("-");
+					if(length>10)
+						date = YEAR_MONTH_DAY_HOUR_MINUTE_SECOND.parse(dateStr);
+					else if(length<=10 && length>7 && indexOf>0) {
+						date = YEAR_MONTH_DAY.parse(dateStr);
+					}else if(length<=7 && length>4 && indexOf>0) {
+						date = YEAR_MONTH.parse(dateStr);
+					}else if(length==4) {
+						date = YEAR.parse(dateStr);
+					}else {
+						throw new UtilException("DATE_FORMAT_ERROR", "时间字符串格式化异常");
+					}
 				}
 			}
 			return date;
