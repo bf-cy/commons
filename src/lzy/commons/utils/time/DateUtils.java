@@ -54,13 +54,15 @@ public class DateUtils {
 			if(dateStr.toUpperCase().indexOf("CST")==20) {
 				date = CST.parse(dateStr);
 			}else {
-				if(dateStr.trim().length()>10)
+				int length = dateStr.trim().length();
+				int indexOf = dateStr.indexOf("-");
+				if(length>10)
 					date = YEAR_MONTH_DAY_HOUR_MINUTE_SECOND.parse(dateStr);
-				else if(dateStr.trim().length()<=10 && dateStr.trim().length()>7 && dateStr.indexOf("-")>0) {
+				else if(length<=10 && length>7 && indexOf>0) {
 					date = YEAR_MONTH_DAY.parse(dateStr);
-				}else if(dateStr.trim().length()<=7 && dateStr.trim().length()>4 && dateStr.indexOf("-")>0) {
+				}else if(length<=7 && length>4 && indexOf>0) {
 					date = YEAR_MONTH.parse(dateStr);
-				}else if(dateStr.trim().length()==4) {
+				}else if(length==4) {
 					date = YEAR.parse(dateStr);
 				}else {
 					throw new UtilException("DATE_FORMAT_ERROR", "时间字符串格式化异常");
