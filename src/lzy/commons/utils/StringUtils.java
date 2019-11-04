@@ -5,6 +5,8 @@
  **********************************************************************************/
 package lzy.commons.utils;
 
+import org.apache.commons.codec.digest.Md5Crypt;
+
 /**********************************************************************************
  * 
  * @author lzy
@@ -23,6 +25,20 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 			return phone.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
 		}
 		return null;
+	}
+	
+	
+	/*****************************************************************************************************************************************************
+	 * 将字符串转换为唯一编码
+	 * @param str 字符串
+	 * @return 转换后的唯一编码
+	 * @author lzy 2019年11月4日 下午2:56:32
+	 *****************************************************************************************************************************************************/
+	public static String uniqueCode(String str) {
+		if(isBlank(str)) {
+			return null;
+		}
+		return Md5Crypt.md5Crypt(str.getBytes());
 	}
 
 }
