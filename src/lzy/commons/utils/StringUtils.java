@@ -5,6 +5,10 @@
  **********************************************************************************/
 package lzy.commons.utils;
 
+import java.nio.charset.Charset;
+import java.util.Random;
+
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.codec.digest.Md5Crypt;
 
 /**********************************************************************************
@@ -26,7 +30,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		}
 		return null;
 	}
-	
+
 	
 	/*****************************************************************************************************************************************************
 	 * 将字符串转换为唯一编码
@@ -38,7 +42,8 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		if(isBlank(str)) {
 			return null;
 		}
-		return Md5Crypt.md5Crypt(str.getBytes());
+		return DigestUtils.md5Hex(str);
 	}
+	
 
 }
