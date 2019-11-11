@@ -174,6 +174,32 @@ public class DateUtils {
 		}
 	}
 	
+	/*****************************************************************************************************************************************************
+	 * 获取指定时间所在的月第一天
+	 * @param date 日期
+	 * @return 指定时间所在的月第一天
+	 * @author lzy 2019年7月8日 下午4:03:33
+	 *****************************************************************************************************************************************************/
+	public static Date monthFirstDay(Date date) {
+		Calendar c= Calendar.getInstance();
+		c.setTime(date);
+		c.add(Calendar.MONTH, 0);
+		c.set(Calendar.DAY_OF_MONTH,1);//设置为1号,当前日期既为本月第一天
+		return c.getTime();
+	}
+	/*****************************************************************************************************************************************************
+	 * 获取指定时间所在的月最后一天
+	 * @param date 日期
+	 * @return 指定时间所在的月最后一天
+	 * @author lzy 2019年7月8日 下午4:03:33
+	 *****************************************************************************************************************************************************/
+	public static Date monthLastDay(Date date) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		c.set(Calendar.DAY_OF_MONTH, c.getActualMaximum(Calendar.DAY_OF_MONTH));
+		return c.getTime();
+	}
+	
 //	public static void main(String[] args) {
 //		int specifyNumDayMonth = specifyNumDayMonth("2019-04");
 //		System.out.println(specifyNumDayMonth);
