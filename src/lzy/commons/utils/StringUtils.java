@@ -11,6 +11,8 @@ import java.util.Random;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.codec.digest.Md5Crypt;
 
+import lzy.commons.emuns.PasswordStrength;
+
 /**********************************************************************************
  * 
  * @author lzy
@@ -45,6 +47,44 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		return DigestUtils.md5Hex(str);
 	}
 	
-	
+	/*****************************************************************************************************************************************************
+	 * 检查密码强度
+	 * @param passwordStr 密码字符串
+	 * @return 密码强度
+	 * @author lzy 2019年12月26日 下午12:46:35
+	 *****************************************************************************************************************************************************/
+	public static PasswordStrength checkPassword(String passwordStr) {
+	    // Z = 字母       S = 数字           T = 特殊字符
+	    String regexZ = "[A-Za-z]+";
+	    String regexS = "^\\d+$";
+	    String regexT = "[~!@#$%^&*.]+";
+	    String regexZT = "[a-zA-Z~!@#$%^&*.]+";
+	    String regexZS = "[0-9A-Za-z]+";
+	    String regexTS = "[\\d~!@#$%^&*.]*";
+	    String regexZTS = "[\\da-zA-Z~!@#$%^&*.]+";
+	 
+	    if (passwordStr.matches(regexZ)){
+	        return PasswordStrength.LETTER;
+	    }
+	    if (passwordStr.matches(regexS)){
+	    	return PasswordStrength.NUMBER;
+	    }
+	    if (passwordStr.matches(regexT)){
+	    	return PasswordStrength.CHARACTER;
+	    }
+	    if (passwordStr.matches(regexZT)){
+	    	return PasswordStrength.LETTER_NUMBER;
+	    }
+	    if (passwordStr.matches(regexZS)){
+	    	return PasswordStrength.LETTER_CHARACTER;
+	    }
+	    if (passwordStr.matches(regexTS)){
+	    	return PasswordStrength.CHARACTER_NUMBER;
+	    }
+	    if (passwordStr.matches(regexZTS)) {
+	    	return PasswordStrength.LETTER_CHARACTER_NUMBER;
+	    }
+	    return null;
+	}
 
 }
