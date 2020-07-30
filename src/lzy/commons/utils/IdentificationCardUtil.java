@@ -6,7 +6,6 @@
  *****************************************************************************************************************************************************/
 package lzy.commons.utils;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -207,7 +206,8 @@ public class IdentificationCardUtil {
      * @return 返回校验结果
      * @author lzy 2019年7月30日 下午12:32:25
      *****************************************************************************************************************************************************/
-    public static boolean IDCardValidate(String IDStr) {
+    @SuppressWarnings({ "unused", "rawtypes" })
+	public static boolean IDCardValidate(String IDStr) {
         try {
 			String tipInfo = "该身份证有效！";// 记录错误信息 
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -325,7 +325,8 @@ public class IdentificationCardUtil {
      * @return 返回所有地址编码的 Hashtable
      * @author lzy 2019年7月30日 下午12:28:35
      *****************************************************************************************************************************************************/
-    private static Hashtable GetAreaCode() {  
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private static Hashtable GetAreaCode() {  
         Hashtable hashtable = new Hashtable();  
         hashtable.put("11", "北京");  
         hashtable.put("12", "天津");  

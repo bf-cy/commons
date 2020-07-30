@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Set;
 
 /**
  * 从12月1号起计算一年中的假期
@@ -207,6 +206,7 @@ public class VacationDayCalculateUtils {
 	 * 获得指定毫秒数的时间是星期几
 	 * @param pTime 时间字符串
 	 */
+	@SuppressWarnings("unused")
 	private Integer dayForWeek(Long pTime) {
 		Calendar cal = Calendar.getInstance();
 		try {

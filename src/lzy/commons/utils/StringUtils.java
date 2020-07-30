@@ -5,11 +5,8 @@
  **********************************************************************************/
 package lzy.commons.utils;
 
-import java.nio.charset.Charset;
-import java.util.Random;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.codec.digest.Md5Crypt;
 
 import lzy.commons.emuns.PasswordStrength;
 

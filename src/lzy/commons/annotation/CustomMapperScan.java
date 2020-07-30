@@ -44,6 +44,7 @@ public @interface CustomMapperScan {
 
 	  String sqlSessionFactoryRef() default "";
 
-	  Class<? extends MapperFactoryBean> factoryBean() default MapperFactoryBean.class;
+	  @SuppressWarnings("rawtypes")
+	Class<? extends MapperFactoryBean> factoryBean() default MapperFactoryBean.class;
 
 }

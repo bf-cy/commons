@@ -5,14 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
-import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.annotation.MapperScannerRegistrar;
 import org.mybatis.spring.mapper.ClassPathMapperScanner;
 import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanNameGenerator;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -38,6 +36,7 @@ public class CustomMapperScannerRegistrar extends MapperScannerRegistrar impleme
 		this.env = environment;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 		AnnotationAttributes annoAttrs = AnnotationAttributes
@@ -66,7 +65,8 @@ public class CustomMapperScannerRegistrar extends MapperScannerRegistrar impleme
 
 		Class<? extends MapperFactoryBean> mapperFactoryBeanClass = annoAttrs.getClass("factoryBean");
 		if (!MapperFactoryBean.class.equals(mapperFactoryBeanClass)) {
-			scanner.setMapperFactoryBean(BeanUtils.instantiateClass(mapperFactoryBeanClass));
+			//scanner.setMapperFactoryBean(BeanUtils.instantiateClass(mapperFactoryBeanClass));
+			scanner.setMapperFactoryBeanClass(mapperFactoryBeanClass);
 		}
 
 		scanner.setSqlSessionTemplateBeanName(annoAttrs.getString("sqlSessionTemplateRef"));
@@ -94,6 +94,7 @@ public class CustomMapperScannerRegistrar extends MapperScannerRegistrar impleme
 		scanner.doScan(StringUtils.toStringArray(basePackages));
 	}
 
+	@SuppressWarnings("unchecked")
 	private void parsePlaceHolder(String pro,List<String> basePackages) {
 		if (pro != null && pro.contains(PropertySourcesPlaceholderConfigurer.DEFAULT_PLACEHOLDER_PREFIX)) {
 //			String value = env.getProperty(pro.substring(2, pro.length() - 1));

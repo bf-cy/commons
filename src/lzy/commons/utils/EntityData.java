@@ -114,7 +114,7 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 		return map.containsValue(value);
 	}
 
-	public Set entrySet() {
+	public Set<Entry<String, Object>> entrySet() {
 		return map.entrySet();
 	}
 
@@ -122,11 +122,11 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 		return map.isEmpty();
 	}
 
-	public Set keySet() {
+	public Set<String> keySet() {
 		return map.keySet();
 	}
 
-	public void putAll(Map t) {
+	public void putAll(Map<? extends String,? extends Object> t) {
 		map.putAll(t);
 	}
 
@@ -134,7 +134,7 @@ public class EntityData extends HashMap<String, Object> implements Map<String, O
 		return map.size();
 	}
 
-	public Collection values() {
+	public Collection<Object> values() {
 		return map.values();
 	}
 

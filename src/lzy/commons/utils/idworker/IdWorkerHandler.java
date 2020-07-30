@@ -81,7 +81,8 @@ class IdWorkerHandler {
         return gen.nextId();
     }
 
-    private String toString(int array[]) {
+    @SuppressWarnings("unused")
+	private String toString(int array[]) {
         if(array == null || array.length == 0) return "[]";
         StringBuilder sb = new StringBuilder("[");
         for(int i = 0; i < array.length; i++) {

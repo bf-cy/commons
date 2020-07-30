@@ -7,7 +7,6 @@ package lzy.commons.utils.http;
 import java.io.IOException;
 import java.util.Map;
 
-import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;

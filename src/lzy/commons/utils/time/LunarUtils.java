@@ -94,6 +94,7 @@ public class LunarUtils {
 	 * 
 	 * @param cal 日历
 	 */
+	@SuppressWarnings("unused")
 	public LunarUtils(Calendar cal) {
 		int yearCyl, monCyl, dayCyl;
 		int leapMonth = 0;
