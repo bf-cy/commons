@@ -131,7 +131,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	/*****************************************************************************************************************************************************
 	 * 验证邮箱是否有效
 	 * 
-	 * @param mobile 邮箱
+	 * @param email 邮箱
 	 * @return 有效返回true,无效返回false
 	 *****************************************************************************************************************************************************/
 	public static boolean validEmail(String email) {
@@ -149,7 +149,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param start      字符开始位置
 	 * @param end        字符结束位置
 	 * @param replaceStr 指定位置需要替换成的字符串
-	 * @return
+	 * @return 返回替换后的字符串
 	 *****************************************************************************************************************************************************/
 	public static String replaceAssignStr(String str, int start, int end, String replaceStr) {
 		if (str != null && str.length() > (end + 1)) {

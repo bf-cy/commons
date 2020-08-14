@@ -90,8 +90,8 @@ public class EntityUtils {
     }
 	
 	/**********************************************************************************
-	 * @author lzy 2018年11月5日 下午1:38:48
-	 * 将实体对象转换为map
+	 * @author lzy 2018年11月5日 下午1:38:48 将map转换为实体对象
+	 * @param map    map
 	 * @param entity 实体对象
 	 **********************************************************************************/
 	public static void MapToEntity(Map<String,Object> map,Object entity) {
