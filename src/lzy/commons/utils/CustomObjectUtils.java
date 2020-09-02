@@ -9,14 +9,13 @@ package lzy.commons.utils;
 import java.util.Collection;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /*****************************************************************************************************************************************************
+ * 自定义对象判断工具类
  * 
- * 
- * @author lzy
-* 2019年3月3日 下午1:55:28
+ * @author lzy 2019年3月3日 下午1:55:28
  *****************************************************************************************************************************************************/
 public class CustomObjectUtils extends ObjectUtils{
 

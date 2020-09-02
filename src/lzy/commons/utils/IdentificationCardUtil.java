@@ -226,7 +226,7 @@ public class IdentificationCardUtil {
 			    Ai = IDStr.substring(0, 6) + "19" + IDStr.substring(6, 15);  
 			}  
 			if (isNumeric(Ai) == false) {  
-			    tipInfo = "身份证15位号码都应为数字 ; 18位号码除最后一位外，都应为数字。";  
+				tipInfo = "身份证15位号码都应为数字 ; 18位号码除最后一位外，都应为数字。";
 			    throw new UtilException(tipInfo);  
 			}  
 			  
