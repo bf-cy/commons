@@ -224,6 +224,20 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	}
 
 	/*****************************************************************************************************************************************************
+	 * 验证是否为小数
+	 * 
+	 * @param decimal 需要验证的小数字符串
+	 * @return 是小数返回true,否则返回false
+	 *****************************************************************************************************************************************************/
+	public static boolean isDecimal(String decimal) {
+		if (decimal == null) {
+			return false;
+		}
+		Pattern pattern = Pattern.compile("^[-\\+]?[\\d]+?.[\\d]+$");
+		return pattern.matcher(decimal).matches();
+	}
+
+	/*****************************************************************************************************************************************************
 	 * 验证是否为数字(包含整数和小数)
 	 * 
 	 * @param numeric 需要验证的数字字符串
@@ -421,7 +435,10 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 //		boolean isMatchTime8 = isTime("23:59:59");
 //		System.out.println("字符串中是否是日期' 子字符串? " + isMatchTime1 + ";" + isMatchTime2 + ";" + isMatchTime3 + ";"
 //				+ isMatchTime4 + ";" + isMatchTime5 + ";" + isMatchTime6 + ";" + isMatchTime7 + ";" + isMatchTime8);
-
+		System.out.println(isDecimal("2"));
+		System.out.println(isDecimal(".2"));
+		System.out.println(isDecimal("2.2"));
+		System.out.println(isDecimal("1."));
 	}
 
 }
