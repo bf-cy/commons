@@ -42,7 +42,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @author lzy
 * 2018年12月13日 下午7:27:54
 	 **********************************************************************************/
-	public static String phoneReplace(String phone) {
+	public static String phoneReplace(final String phone) {
 		if(phone!=null) {
 			return phone.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
 		}
@@ -58,7 +58,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param replaceStr 指定位置需要替换成的字符串
 	 * @return 返回替换后的字符串
 	 *****************************************************************************************************************************************************/
-	public static String replaceAssignStr(String str, int start, int end, String replaceStr) {
+	public static String replaceAssignStr(final String str, int start, int end, final String replaceStr) {
 		if (str != null && str.length() > (end + 1)) {
 			StringBuilder sb = new StringBuilder(str);
 			sb.replace(start, end, "****");
@@ -75,7 +75,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @return 转换后的唯一编码
 	 * @author lzy 2019年11月4日 下午2:56:32
 	 *****************************************************************************************************************************************************/
-	public static String uniqueCode(String str) {
+	public static String uniqueCode(final String str) {
 		if (isBlank(str)) {
 			return null;
 		}
@@ -89,7 +89,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @return 密码强度
 	 * @author lzy 2019年12月26日 下午12:46:35
 	 *****************************************************************************************************************************************************/
-	public static PasswordStrength checkPassword(String passwordStr) {
+	public static PasswordStrength checkPassword(final String passwordStr) {
 		// Z = 字母 S = 数字 T = 特殊字符
 		String regexZ = "[A-Za-z]+";
 		String regexS = "^\\d+$";
@@ -131,7 +131,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param identityCard 身份证号
 	 * @return 有效返回true,无效返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isIdentityCard(String identityCard) {
+	public static boolean isIdentityCard(final String identityCard) {
 //				if (identityCard.matches(identity_card_regular)) {
 //					return true;
 //				} else {
@@ -153,7 +153,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param mobile 手机号
 	 * @return 有效返回true,无效返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isMobile(String mobile) {
+	public static boolean isMobile(final String mobile) {
 		if (mobile == null) {
 			return false;
 		}
@@ -170,7 +170,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param tel 需要验证的固话号字符串
 	 * @return 是日期返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isTel(String tel) {
+	public static boolean isTel(final String tel) {
 		if (tel == null) {
 			return false;
 		}
@@ -184,7 +184,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param MobileOrTel 需要验证的手机号或者固话号字符串
 	 * @return 是日期返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isMobileOrTel(String MobileOrTel) {
+	public static boolean isMobileOrTel(final String MobileOrTel) {
 		if (MobileOrTel == null) {
 			return false;
 		}
@@ -198,7 +198,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param email 邮箱
 	 * @return 有效返回true,无效返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isEmail(String email) {
+	public static boolean isEmail(final String email) {
 		if (email == null) {
 			return false;
 		}
@@ -215,7 +215,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param integer 需要验证的整数字符串
 	 * @return 是整数返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isInteger(String integer) {
+	public static boolean isInteger(final String integer) {
 		if (integer == null) {
 			return false;
 		}
@@ -229,7 +229,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param decimal 需要验证的小数字符串
 	 * @return 是小数返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isDecimal(String decimal) {
+	public static boolean isDecimal(final String decimal) {
 		if (decimal == null) {
 			return false;
 		}
@@ -238,12 +238,12 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	}
 
 	/*****************************************************************************************************************************************************
-	 * 验证是否为数字(包含整数和小数)
+	 * 验证是否为整数或者小数
 	 * 
-	 * @param numeric 需要验证的数字字符串
-	 * @return 是整数返回true,否则返回false
+	 * @param numeric 需要验证的整数或者小数字符串
+	 * @return 是整数或者小数返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isNumeric(String numeric) {
+	public static boolean isIntegerOrDecimal(final String numeric) {
 		if (numeric == null) {
 			return false;
 		}
@@ -258,7 +258,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param date 需要验证的日期符串
 	 * @return 是日期返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isDate(String date) {
+	public static boolean isDate(final String date) {
 		if (date == null) {
 			return false;
 		}
@@ -272,7 +272,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param dateTime 需要验证的日期时间符串
 	 * @return 是日期返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isDateTime(String dateTime) {
+	public static boolean isDateTime(final String dateTime) {
 		if (dateTime == null) {
 			return false;
 		}
@@ -286,7 +286,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param time 需要验证的时间字符串
 	 * @return 是日期返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isTime(String time) {
+	public static boolean isTime(final String time) {
 		if (time == null) {
 			return false;
 		}
@@ -300,7 +300,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param singleLineText 需要验证的单行文本字符串
 	 * @return 匹配到换行符或者回车符返回false,否则返回true
 	 *****************************************************************************************************************************************************/
-	public static boolean isSingleLineText(String singleLineText) {
+	public static boolean isSingleLineText(final String singleLineText) {
 		if (singleLineText == null) {
 			return true;
 		}
@@ -314,7 +314,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param website 需要验证的网址符串
 	 * @return 是网址返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isWebsite(String website) {
+	public static boolean isWebsite(final String website) {
 		if (website == null) {
 			return true;
 		}
@@ -328,7 +328,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param chineseCharacter 需要验证的汉字符串
 	 * @return 是汉字字符串返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isChineseCharacter(String chineseCharacter) {
+	public static boolean isChineseCharacter(final String chineseCharacter) {
 		if (chineseCharacter == null) {
 			return true;
 		}
@@ -342,7 +342,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @param english 需要验证的英文字符串
 	 * @return 是英文字符串返回true,否则返回false
 	 *****************************************************************************************************************************************************/
-	public static boolean isEnglish(String english) {
+	public static boolean isEnglish(final String english) {
 		if (english == null) {
 			return true;
 		}
@@ -361,7 +361,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @return 有效返回true,无效返回false
 	 *****************************************************************************************************************************************************/
 	@Deprecated
-	public static boolean validIdentityCard(String identityCard) {
+	public static boolean validIdentityCard(final String identityCard) {
 //			if (identityCard.matches(identity_card_regular)) {
 //				return true;
 //			} else {
@@ -384,7 +384,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @return 有效返回true,无效返回false
 	 *****************************************************************************************************************************************************/
 	@Deprecated
-	public static boolean validMobile(String mobile) {
+	public static boolean validMobile(final String mobile) {
 		if (mobile == null) {
 			return false;
 		}
@@ -402,7 +402,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	 * @return 有效返回true,无效返回false
 	 *****************************************************************************************************************************************************/
 	@Deprecated
-	public static boolean validEmail(String email) {
+	public static boolean validEmail(final String email) {
 		if (email == null) {
 			return false;
 		}
@@ -415,30 +415,30 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
 	// =================================================================废弃方法----结束==============================================================================/
 
-	public static void main(String[] args) {
-//		System.out.println(date_regular_prefix);
-//		boolean isMatchDate1 = isDate("2015-01-31");
-//		boolean isMatchDate2 = isDate("2015-01-32");
-//		boolean isMatchDate3 = isDate("2015-02-29");
-//		boolean isMatchDate4 = isDate("2016-02-29");
-//		boolean isMatchDate5 = isDate("2016-11-30");
-//		System.out.println("字符串中是否是日期' 子字符串? " + isMatchDate1 + ";" + isMatchDate2 + ";" + isMatchDate3 + ";"
-//				+ isMatchDate4 + ";" + isMatchDate5);
-//
-//		boolean isMatchTime1 = isTime("");
-//		boolean isMatchTime2 = isTime("14:03:01");
-//		boolean isMatchTime3 = isTime("14:60:01");
-//		boolean isMatchTime4 = isTime("25:02:01");
-//		boolean isMatchTime5 = isTime("14:13:73");
-//		boolean isMatchTime6 = isTime("00:04:03");
-//		boolean isMatchTime7 = isTime("24:00:01");
-//		boolean isMatchTime8 = isTime("23:59:59");
-//		System.out.println("字符串中是否是日期' 子字符串? " + isMatchTime1 + ";" + isMatchTime2 + ";" + isMatchTime3 + ";"
-//				+ isMatchTime4 + ";" + isMatchTime5 + ";" + isMatchTime6 + ";" + isMatchTime7 + ";" + isMatchTime8);
-		System.out.println(isDecimal("2"));
-		System.out.println(isDecimal(".2"));
-		System.out.println(isDecimal("2.2"));
-		System.out.println(isDecimal("1."));
-	}
+//	public static void main(String[] args) {
+////		System.out.println(date_regular_prefix);
+////		boolean isMatchDate1 = isDate("2015-01-31");
+////		boolean isMatchDate2 = isDate("2015-01-32");
+////		boolean isMatchDate3 = isDate("2015-02-29");
+////		boolean isMatchDate4 = isDate("2016-02-29");
+////		boolean isMatchDate5 = isDate("2016-11-30");
+////		System.out.println("字符串中是否是日期' 子字符串? " + isMatchDate1 + ";" + isMatchDate2 + ";" + isMatchDate3 + ";"
+////				+ isMatchDate4 + ";" + isMatchDate5);
+////
+////		boolean isMatchTime1 = isTime("");
+////		boolean isMatchTime2 = isTime("14:03:01");
+////		boolean isMatchTime3 = isTime("14:60:01");
+////		boolean isMatchTime4 = isTime("25:02:01");
+////		boolean isMatchTime5 = isTime("14:13:73");
+////		boolean isMatchTime6 = isTime("00:04:03");
+////		boolean isMatchTime7 = isTime("24:00:01");
+////		boolean isMatchTime8 = isTime("23:59:59");
+////		System.out.println("字符串中是否是日期' 子字符串? " + isMatchTime1 + ";" + isMatchTime2 + ";" + isMatchTime3 + ";"
+////				+ isMatchTime4 + ";" + isMatchTime5 + ";" + isMatchTime6 + ";" + isMatchTime7 + ";" + isMatchTime8);
+//		System.out.println(isDecimal("2"));
+//		System.out.println(isDecimal(".2"));
+//		System.out.println(isDecimal("2.2"));
+//		System.out.println(isDecimal("1."));
+//	}
 
 }
