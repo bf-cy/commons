@@ -1,5 +1,22 @@
 package lzy.commons.utils;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.URL;
+import java.net.URLDecoder;
+import java.util.Enumeration;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -51,41 +68,88 @@ public class IpUtils {
 	}
 	
 	
-//	public static String getIpAddr(HttpServletRequest request) {
-//        String ipAddress = null;
-//        try {
-//            ipAddress = request.getHeader("x-forwarded-for");
-//            if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
-//                ipAddress = request.getHeader("Proxy-Client-IP");
-//            }
-//            if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
-//                ipAddress = request.getHeader("WL-Proxy-Client-IP");
-//            }
-//            if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {
-//                ipAddress = request.getRemoteAddr();
-//                if (ipAddress.equals("127.0.0.1")) {
-//                    // 根据网卡取本机配置的IP
-//                    InetAddress inet = null;
-//                    try {
-//                        inet = InetAddress.getLocalHost();
-//                    } catch (UnknownHostException e) {
-//                        e.printStackTrace();
-//                    }
-//                    ipAddress = inet.getHostAddress();
-//                }
-//            }
-//            // 对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割
-//            if (ipAddress != null && ipAddress.length() > 15) { // "***.***.***.***".length()
-//                                                                // = 15
-//                if (ipAddress.indexOf(",") > 0) {
-//                    ipAddress = ipAddress.substring(0, ipAddress.indexOf(","));
-//                }
-//            }
-//        } catch (Exception e) {
-//            ipAddress="";
-//        }
-//        // ipAddress = this.getRequest().getRemoteAddr();
-//        
-//        return ipAddress;
-//    }
+    /*****************************************************************************************************************************************************
+     * 获取本机的内网ip地址
+     * @return
+     * @throws SocketException
+     * @author lzy 2020年11月13日 下午8:40:18
+     *****************************************************************************************************************************************************/
+    public static String getInnetIp() throws SocketException {
+       String localip = null;// 本地IP，如果没有配置外网IP则返回它
+       String netip = null;// 外网IP
+       Enumeration<NetworkInterface> netInterfaces;
+        netInterfaces = NetworkInterface.getNetworkInterfaces();
+       InetAddress ip = null;
+       boolean finded = false;// 是否找到外网IP
+       while (netInterfaces.hasMoreElements() && !finded) {
+         NetworkInterface ni = netInterfaces.nextElement();
+         Enumeration<InetAddress> address = ni.getInetAddresses();
+           while (address.hasMoreElements()) {
+               ip = address.nextElement();
+             if (!ip.isSiteLocalAddress() 
+                        &&!ip.isLoopbackAddress() 
+                        &&ip.getHostAddress().indexOf(":") == -1){// 外网IP
+                   netip = ip.getHostAddress();
+                   finded = true;
+                             break;
+           } else if (ip.isSiteLocalAddress() 
+                     &&!ip.isLoopbackAddress() 
+             &&ip.getHostAddress().indexOf(":") == -1){// 内网IP
+                   localip = ip.getHostAddress();
+               }
+           }
+       }
+       if (netip != null && !"".equals(netip)) {
+           return netip;
+       } else {
+           return localip;
+       }
+   }
+ 
+    
+    /*****************************************************************************************************************************************************
+     * 获取本机外网ip
+     * @return
+     * @author lzy 2020年11月13日 下午8:39:04
+     *****************************************************************************************************************************************************/
+    public static String getV4IP() {
+        String ip = "";
+        String chinaz = "http://ip.chinaz.com";
+ 
+        StringBuilder inputLine = new StringBuilder();
+        String read = "";
+        URL url = null;
+        HttpURLConnection urlConnection = null;
+        BufferedReader in = null;
+        try {
+            url = new URL(chinaz);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+            while ((read = in.readLine()) != null) {
+                inputLine.append(read + "\r\n");
+            }
+            //System.out.println(inputLine.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        Pattern p = Pattern.compile("\\<dd class\\=\"fz24\">(.*?)\\<\\/dd>");
+        Matcher m = p.matcher(inputLine.toString());
+        if (m.find()) {
+            String ipstr = m.group(1);
+            ip = ipstr;
+            //System.out.println(ipstr);
+        }
+        return ip;
+    }
+ 
 }
