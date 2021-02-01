@@ -34,7 +34,56 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	// "^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$";
 	private final static String website_regular = "^(http|https|ftp)\\://([a-zA-Z0-9\\.\\-]+(\\:[a-zA-Z0-9\\.&%\\$\\-]+)*@)?((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|([a-zA-Z0-9\\-]+\\.)*[a-zA-Z0-9\\-]+\\.[a-zA-Z]{2,4})(\\:[0-9]+)?(/[^/][a-zA-Z0-9\\.\\,\\?\\'\\\\/\\+&%\\$#\\=~_\\-@]*)*$";
 
+
+	private final static String domain_prefix_regular = "([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)";
+	private final static String domain_suffix_regular = "+[a-zA-Z]{2,6}";
+	
+	
+	
 	// @formatter:on
+	
+
+	/**********************************************************************************
+	 * 将手机号中间4位替换为*号
+	 * @param domain 域名
+	 * @return 返回字符串是否为域名
+	 * @author lzy
+* 2018年12月13日 下午7:27:54
+	 **********************************************************************************/
+	public static boolean isDomain(final String domain) {
+		if (domain == null) {
+			return false;
+		}
+		if (domain.matches(domain_prefix_regular+domain_suffix_regular)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	/*****************************************************************************************************************************************************
+	 * 根据域名级别，判断当前域名是否为对应类型的域名
+	 * @param domainLevel 域名级别，最小值1，小于1默认1
+	 * @param domain 域名
+	 * @return 返回字符串是否为域名
+	 * @author lzy 2021年2月1日 下午2:32:30
+	 *****************************************************************************************************************************************************/
+	public static boolean isDomain(int domainLevel,final String domain) {
+		if (domain == null) {
+			return false;
+		}
+		domainLevel = domainLevel>0?domainLevel:1;
+		String domainRegular = "";
+		for (int i = 0; i < domainLevel; i++) {
+			domainRegular+=domain_prefix_regular;
+		}
+		domainRegular+=domain_suffix_regular;
+		if (domain.matches(domainRegular)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	/**********************************************************************************
 	 * 将手机号中间4位替换为*号
 	 * @param phone 手机号
