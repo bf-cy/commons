@@ -24,7 +24,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	// private final static String identity_card_regular =
 	// "^[1-9]\\d{5}(18|19|([23]\\d))\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$";
 	// private final static String mobile_regular = "^1(3|4|5|6|7|8|9)\\d{9}$";
-	private final static String mobile_regular_prefix = "^1(3|4|5|7|8)\\d{9}";// 手机号正则前缀
+	private final static String mobile_regular_prefix = "^1(3|4|5|7|8|9)\\d{9}";// 手机号正则前缀
 	private final static String mobile_regular = mobile_regular_prefix + "$";// 手机号正则
 	private final static String tel_regular_prefix = "^((\\d{3,4})|\\d{3,4}-|\\s)?\\d{7,14}";// 固话号正则前缀
 	private final static String tel_regular = tel_regular_prefix + "$";// 固话号正则
